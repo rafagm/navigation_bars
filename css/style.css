@@ -1,8 +1,13 @@
-* {
+*,
+*::after,
+*::before {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   backface-visibility: hidden; }
+
+body {
+  background-color: #dfdfdf; }
 
 @media screen and (max-width: 650px) {
   body {
@@ -23,7 +28,8 @@ nav {
   nav .nav-links {
     display: flex;
     width: 35%;
-    justify-content: space-around; }
+    justify-content: space-around;
+    z-index: 1; }
     @media screen and (max-width: 950px) {
       nav .nav-links {
         width: 45%; } }
@@ -48,7 +54,10 @@ nav {
       font-weight: bold;
       font-size: 14px; }
     nav .nav-links li {
-      list-style: none; }
+      list-style: none;
+      transition: transform 0.1s ease-out; }
+      nav .nav-links li:hover {
+        transform: scale(1.1); }
   nav .burger {
     display: none; }
     @media screen and (max-width: 650px) {
@@ -60,7 +69,7 @@ nav {
       height: 3px;
       background-color: #dfdfdf;
       margin: 5px;
-      transition: all .3s ease; }
+      transition: all 0.3s ease; }
   nav .toggle .line1 {
     transform: rotate(45deg) translate(5px, 6px); }
   nav .toggle .line2 {
@@ -69,6 +78,12 @@ nav {
     transform: rotate(-45deg) translate(5px, -6px); }
   nav .nav-active {
     transform: translateX(0%); }
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 @keyframes navLinkFade {
   from {

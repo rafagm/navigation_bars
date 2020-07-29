@@ -1,16 +1,20 @@
-* {
+*,
+*::after,
+*::before {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   backface-visibility: hidden;
 }
 
-@media screen and (max-width: 650px) {
-    body {
-        overflow-x: hidden;
-    }
+body {
+    background-color: rgb(223, 223, 223);
 }
-
+@media screen and (max-width: 650px) {
+  body {
+    overflow-x: hidden;
+  }
+}
 
 nav {
   display: flex;
@@ -31,9 +35,10 @@ nav {
     display: flex;
     width: 35%;
     justify-content: space-around;
+    z-index: 1;
 
     @media screen and (max-width: 950px) {
-        width: 45%;
+      width: 45%;
     }
 
     @media screen and (max-width: 650px) {
@@ -49,7 +54,7 @@ nav {
       transform: translateX(100%);
 
       li {
-          opacity: 0;
+        opacity: 0;
       }
     }
 
@@ -63,6 +68,10 @@ nav {
 
     li {
       list-style: none;
+      transition: transform 0.1s ease-out; 
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -78,38 +87,44 @@ nav {
       height: 3px;
       background-color: rgb(223, 223, 223);
       margin: 5px;
-      
-      transition: all .3s ease;
-    }
 
+      transition: all 0.3s ease;
+    }
   }
 
   .toggle {
-        .line1 {
-            transform: rotate(45deg) translate(5px, 6px);
-        }
-        
-        .line2 {
-            opacity: 0;
-        }
-
-        .line3 {
-            transform: rotate(-45deg) translate(5px, -6px);
-        }
+    .line1 {
+      transform: rotate(45deg) translate(5px, 6px);
     }
 
+    .line2 {
+      opacity: 0;
+    }
+
+    .line3 {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+  }
+
   .nav-active {
-      transform: translateX(0%);
+    transform: translateX(0%);
   }
 }
 
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
