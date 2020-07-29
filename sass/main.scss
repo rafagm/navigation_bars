@@ -1,39 +1,115 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  backface-visibility: hidden;
 }
+
+@media screen and (max-width: 650px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 8vh;
-    background-color: #5D4954;
-    font-family: 'Poppins', sans-serif;
-}
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #5d4954;
+  font-family: "Poppins", sans-serif;
 
-.logo {
+  .logo {
     color: rgb(223, 223, 223);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 20px;
-}
+  }
 
-.nav-links {
+  .nav-links {
     display: flex;
-    width: 30%;
+    width: 35%;
     justify-content: space-around;
 
+    @media screen and (max-width: 950px) {
+        width: 45%;
+    }
+
+    @media screen and (max-width: 650px) {
+      position: absolute;
+      right: 0px;
+      height: 92vh;
+      top: 8vh;
+      background-color: #5d4954;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 45%;
+      transform: translateX(100%);
+
+      li {
+          opacity: 0;
+      }
+    }
+
     a {
-        color: rgb(223, 223, 223);
-        text-decoration: none;
-        letter-spacing: 3px;
-        font-weight: bold;
-        font-size: 14px;
+      color: rgb(223, 223, 223);
+      text-decoration: none;
+      letter-spacing: 3px;
+      font-weight: bold;
+      font-size: 14px;
     }
 
     li {
-        list-style: none;
+      list-style: none;
+    }
+  }
+
+  .burger {
+    display: none;
+    @media screen and (max-width: 650px) {
+      display: block;
+      cursor: pointer;
+    }
+
+    div {
+      width: 25px;
+      height: 3px;
+      background-color: rgb(223, 223, 223);
+      margin: 5px;
+      
+      transition: all .3s ease;
+    }
+
+  }
+
+  .toggle {
+        .line1 {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        
+        .line2 {
+            opacity: 0;
+        }
+
+        .line3 {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+    }
+
+  .nav-active {
+      transform: translateX(0%);
+  }
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
     }
 }

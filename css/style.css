@@ -1,31 +1,79 @@
 * {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  backface-visibility: hidden; }
+
+@media screen and (max-width: 650px) {
+  body {
+    overflow-x: hidden; } }
 
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #5D4954;
-  font-family: 'Poppins', sans-serif; }
-
-.logo {
-  color: #dfdfdf;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 20px; }
-
-.nav-links {
-  display: flex;
-  width: 30%;
-  justify-content: space-around; }
-  .nav-links a {
+  background-color: #5d4954;
+  font-family: "Poppins", sans-serif; }
+  nav .logo {
     color: #dfdfdf;
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-weight: bold;
-    font-size: 14px; }
-  .nav-links li {
-    list-style: none; }
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px; }
+  nav .nav-links {
+    display: flex;
+    width: 35%;
+    justify-content: space-around; }
+    @media screen and (max-width: 950px) {
+      nav .nav-links {
+        width: 45%; } }
+    @media screen and (max-width: 650px) {
+      nav .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #5d4954;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 45%;
+        transform: translateX(100%); }
+        nav .nav-links li {
+          opacity: 0; } }
+    nav .nav-links a {
+      color: #dfdfdf;
+      text-decoration: none;
+      letter-spacing: 3px;
+      font-weight: bold;
+      font-size: 14px; }
+    nav .nav-links li {
+      list-style: none; }
+  nav .burger {
+    display: none; }
+    @media screen and (max-width: 650px) {
+      nav .burger {
+        display: block;
+        cursor: pointer; } }
+    nav .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #dfdfdf;
+      margin: 5px;
+      transition: all .3s ease; }
+  nav .toggle .line1 {
+    transform: rotate(45deg) translate(5px, 6px); }
+  nav .toggle .line2 {
+    opacity: 0; }
+  nav .toggle .line3 {
+    transform: rotate(-45deg) translate(5px, -6px); }
+  nav .nav-active {
+    transform: translateX(0%); }
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px); }
+  to {
+    opacity: 1;
+    transform: translateX(0px); } }
