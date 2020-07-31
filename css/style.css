@@ -120,10 +120,6 @@ nav {
   bottom: -1px;
   background-image: linear-gradient(to top, #91afea 20%, #6E9EFF 80%); }
 
-.bgTop {
-  z-index: 15;
-  opacity: 0.5; }
-
 .bgMiddle {
   z-index: 10;
   opacity: 0.75; }
@@ -139,16 +135,6 @@ nav {
   background-repeat: repeat no-repeat;
   background-position: 0 bottom;
   transform-origin: center bottom; }
-
-.waveTop {
-  background-size: 50% 100px;
-  background-image: url("../img/background_waves/wave-top.png"); }
-
-.waveAnimation .waveTop {
-  animation: move-wave 3s;
-  -webkit-animation: move-wave 3s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s; }
 
 .waveMiddle {
   background-size: 50% 120px;
